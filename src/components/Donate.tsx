@@ -1,80 +1,59 @@
+import { useEffect, useRef } from 'react';
 import { Heart, Shield, TrendingUp } from 'lucide-react';
 
 export default function Donate() {
+  const rendered = useRef(false);
+
+  useEffect(() => {
+    const containerId = 'paypal-container-H72ZJKZ3UA9RN';
+    const scriptId = 'paypal-hosted-sdk';
+
+    const tryRender = () => {
+      if (rendered.current) return;
+      const container = document.getElementById(containerId);
+      if (!container || container.hasChildNodes()) return;
+      rendered.current = true;
+      (window as any).paypal.HostedButtons({
+        hostedButtonId: 'H72ZJKZ3UA9RN',
+      }).render(`#${containerId}`);
+    };
+
+    if (document.getElementById(scriptId)) {
+      if ((window as any).paypal) tryRender();
+    } else {
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = 'https://www.paypal.com/sdk/js?client-id=BAAUKKUW_86AQCoXoSTf9osjvM6q-2JQ8qw3_75da5R9lLgHI_sEKp0F-2OtcHaAInh4xZSkUpiXxBdgwk&components=hosted-buttons&disable-funding=venmo&currency=EUR';
+      script.async = true;
+      script.onload = tryRender;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
-    <section id="donate" className="py-20 bg-gradient-to-b from-white to-emerald-50">
+    <section id="donate" className="py-24 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
+
           <div className="text-center mb-12 animate-fadeInUp">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <span className="inline-block text-emerald-600 text-sm font-bold uppercase tracking-widest mb-4">
+              Soutenez nos actions
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
               Je fais un don
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-emerald-600 to-orange-500 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600">
-              Votre générosité transforme des vies
-            </p>
+            <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 to-orange-400 mx-auto mb-6 rounded-full" />
           </div>
 
-          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-            <div className="p-10">
-              <div className="grid md:grid-cols-3 gap-6 mb-10">
-                <div className="text-center p-6 bg-emerald-50 rounded-2xl hover:bg-emerald-100 transition-colors cursor-pointer">
-                  <div className="text-3xl font-bold text-emerald-600 mb-2">50€</div>
-                  <p className="text-sm text-gray-600">Fournitures scolaires pour 10 élèves</p>
-                </div>
-                <div className="text-center p-6 bg-orange-50 rounded-2xl hover:bg-orange-100 transition-colors cursor-pointer border-2 border-orange-400">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">100€</div>
-                  <p className="text-sm text-gray-600">Kit médical complet</p>
-                </div>
-                <div className="text-center p-6 bg-teal-50 rounded-2xl hover:bg-teal-100 transition-colors cursor-pointer">
-                  <div className="text-3xl font-bold text-teal-600 mb-2">200€</div>
-                  <p className="text-sm text-gray-600">Équipement agricole</p>
-                </div>
-              </div>
+          <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
 
-              <div className="mb-8">
-                <label className="block text-gray-700 font-semibold mb-3">Montant personnalisé</label>
-                <div className="relative">
-                  <input
-                    type="number"
-                    placeholder="Entrez un montant"
-                    className="w-full px-6 py-4 border-2 border-gray-200 rounded-full focus:border-emerald-500 focus:outline-none text-lg"
-                  />
-                  <span className="absolute right-6 top-1/2 transform -translate-y-1/2 text-gray-500 font-semibold">€</span>
-                </div>
-              </div>
+            {/* Top accent */}
+            <div className="h-1.5 bg-gradient-to-r from-emerald-500 via-teal-400 to-orange-400" />
 
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <div className="flex items-start">
-                  <Heart className="text-pink-500 mr-3 mt-1 flex-shrink-0" size={24} />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Impact direct</h4>
-                    <p className="text-sm text-gray-600">Résultats mesurables sur le terrain</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <Shield className="text-blue-500 mr-3 mt-1 flex-shrink-0" size={24} />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Sécurisé</h4>
-                    <p className="text-sm text-gray-600">Paiement 100% sécurisé</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <TrendingUp className="text-green-500 mr-3 mt-1 flex-shrink-0" size={24} />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Transparent</h4>
-                    <p className="text-sm text-gray-600">Rapports d'activité réguliers</p>
-                  </div>
-                </div>
-              </div>
+            <div className="p-10 md:p-14">
 
-              <button className="w-full bg-gradient-to-r from-emerald-600 to-orange-500 text-white px-8 py-5 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                Faire un don maintenant
-              </button>
-
-              <p className="text-center text-sm text-gray-500 mt-6">
-                Association loi 1901 - RNA W932004075
-              </p>
+              {/* PayPal Hosted Button */}
+              <div id="paypal-container-H72ZJKZ3UA9RN" className="w-full min-h-[50px]" />
             </div>
           </div>
         </div>

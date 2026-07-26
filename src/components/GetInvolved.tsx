@@ -1,84 +1,117 @@
-import { HandHeart, Users, Share2, Mail } from 'lucide-react';
+import { HandHeart, Users, Share2, Mail, CheckCircle } from 'lucide-react';
 
 export default function GetInvolved() {
+  const scrollToDonate = () => {
+    document.getElementById('donate')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const ways = [
+    {
+      icon: HandHeart,
+      title: 'Faire un don',
+      description: 'Soutenez financièrement nos projets pour toutes les communautés',
+      color: 'from-emerald-500 to-teal-500',
+      light: 'bg-emerald-50',
+    },
+    {
+      icon: Users,
+      title: 'Devenir bénévole',
+      description: 'Donnez de votre temps et de vos compétences partout dans le monde',
+      color: 'from-blue-500 to-indigo-500',
+      light: 'bg-blue-50',
+    },
+    {
+      icon: Share2,
+      title: 'Partager',
+      description: 'Faites connaître notre action autour de vous, chaque partage compte',
+      color: 'from-purple-500 to-pink-500',
+      light: 'bg-purple-50',
+    },
+    {
+      icon: Mail,
+      title: 'Nous contacter',
+      description: 'Posez-nous vos questions ou proposez un partenariat',
+      color: 'from-orange-500 to-amber-500',
+      light: 'bg-orange-50',
+    },
+  ];
+
   return (
-    <section id="get-involved" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="get-involved" className="py-24 bg-white">
       <div className="container mx-auto px-6">
+
         <div className="text-center mb-16 animate-fadeInUp">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <span className="inline-block text-emerald-600 text-sm font-bold uppercase tracking-widest mb-4">
+            Rejoignez-nous
+          </span>
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
             Agir avec nous
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-pink-500 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Rejoignez-nous dans notre mission pour un Bana autonome et prospère
+          <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 to-blue-400 mx-auto mb-6 rounded-full" />
+          <p className="text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
+            Rejoignez-nous dans notre mission de solidarité pour des communautés autonomes et prospères, du Cameroun à l'international
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          <div className="text-center group">
-            <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <HandHeart className="text-white" size={36} />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {ways.map(({ icon: Icon, title, description, color }) => (
+            <div
+              key={title}
+              className="group relative bg-gray-50 hover:bg-white rounded-3xl p-7 border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-400 cursor-default"
+            >
+              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                <Icon className="text-white" size={26} />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Faire un don</h3>
-            <p className="text-gray-600">Soutenez nos projets financièrement</p>
-          </div>
-
-          <div className="text-center group">
-            <div className="bg-gradient-to-br from-pink-500 to-red-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <Users className="text-white" size={36} />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Devenir bénévole</h3>
-            <p className="text-gray-600">Donnez de votre temps et compétences</p>
-          </div>
-
-          <div className="text-center group">
-            <div className="bg-gradient-to-br from-green-500 to-emerald-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <Share2 className="text-white" size={36} />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Partager</h3>
-            <p className="text-gray-600">Faites connaître notre action</p>
-          </div>
-
-          <div className="text-center group">
-            <div className="bg-gradient-to-br from-yellow-500 to-orange-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <Mail className="text-white" size={36} />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Nous contacter</h3>
-            <p className="text-gray-600">Posez vos questions</p>
-          </div>
+          ))}
         </div>
 
-        <div className="bg-gradient-to-r from-blue-600 to-pink-500 rounded-3xl overflow-hidden shadow-2xl">
-          <div className="grid md:grid-cols-2 gap-0">
-            <div className="p-12 text-white flex flex-col justify-center">
-              <h3 className="text-3xl font-bold mb-6">Votre contribution fait la différence</h3>
-              <p className="text-lg mb-8 text-blue-50">
-                Chaque don, chaque action compte. Ensemble, nous construisons un avenir meilleur pour les populations de Bana.
+        {/* CTA Banner */}
+        <div className="relative overflow-hidden bg-gray-900 rounded-3xl shadow-2xl">
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-emerald-400 -translate-y-1/3 translate-x-1/3" />
+            <div className="absolute bottom-0 left-0 w-60 h-60 rounded-full bg-teal-400 translate-y-1/3 -translate-x-1/3" />
+          </div>
+
+          <div className="relative grid md:grid-cols-2 gap-0">
+            <div className="p-10 md:p-14 text-white flex flex-col justify-center">
+              <h3 className="text-3xl md:text-4xl font-black mb-5 leading-tight">
+                Votre contribution<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">
+                  fait la différence
+                </span>
+              </h3>
+              <p className="text-gray-300 text-lg mb-8 leading-relaxed">
+                Chaque don, chaque action compte. Ensemble, nous construisons un avenir meilleur fondé sur la solidarité, pour les communautés camerounaises, européennes et internationales.
               </p>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start">
-                  <span className="bg-white/20 rounded-full p-1 mr-3 mt-1">✓</span>
-                  <span>100% de vos dons vont directement aux projets</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-white/20 rounded-full p-1 mr-3 mt-1">✓</span>
-                  <span>Transparence totale sur l'utilisation des fonds</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-white/20 rounded-full p-1 mr-3 mt-1">✓</span>
-                  <span>Suivi régulier de l'impact de vos contributions</span>
-                </li>
+              <ul className="space-y-3 mb-10">
+                {[
+                  "100% de vos dons vont directement aux projets",
+                  "Transparence totale sur l'utilisation des fonds",
+                  "Suivi régulier de l'impact de vos contributions",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
+                    <CheckCircle size={17} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
               </ul>
-              <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 w-fit">
+              <button
+                onClick={scrollToDonate}
+                className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-4 rounded-full font-bold hover:shadow-xl hover:shadow-emerald-500/25 transform hover:scale-105 transition-all duration-300 w-fit text-sm"
+              >
                 Je fais un don maintenant
               </button>
             </div>
-            <div className="relative h-80 md:h-auto">
+            <div className="relative h-72 md:h-auto overflow-hidden rounded-b-3xl md:rounded-b-none md:rounded-r-3xl">
               <img
-                src="https://images.pexels.com/photos/6646914/pexels-photo-6646914.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Community support"
-                className="w-full h-full object-cover"
+                src="/ex.jpg"
+                alt="Communauté Bana"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-gray-900/20" />
             </div>
           </div>
         </div>
