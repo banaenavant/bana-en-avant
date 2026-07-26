@@ -4,62 +4,65 @@ export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
 
-      {/* Background */}
+      {/* Background photo — overlay allégé pour laisser la photo respirer */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/90 via-emerald-900/75 to-teal-800/70 z-10" />
         <img
           src="/Chefferie_Bana.jpg"
           alt="Chefferie de Bana"
           className="w-full h-full object-cover animate-slowZoom"
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-emerald-950/55 to-teal-900/40 z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/50 to-transparent z-10" />
       </div>
 
-      {/* Decorative circles */}
+      {/* Orbes lumineux flottants */}
       <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 right-10 w-64 h-64 rounded-full border border-white/5" />
-        <div className="absolute top-1/3 right-20 w-32 h-32 rounded-full border border-white/8" />
-        <div className="absolute bottom-1/4 left-10 w-48 h-48 rounded-full border border-white/5" />
+        <div className="absolute -top-32 -right-32 w-[550px] h-[550px] rounded-full bg-emerald-500/25 blur-[100px] animate-orb-1" />
+        <div className="absolute -bottom-32 -left-32 w-[450px] h-[450px] rounded-full bg-amber-500/20 blur-[100px] animate-orb-2" />
+        <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full bg-teal-400/10 blur-[80px] animate-orb-3" />
       </div>
 
-      {/* Content */}
+      {/* Contenu */}
       <div className="relative z-20 text-center text-white px-6 max-w-5xl mx-auto">
 
-        <div className="animate-fadeInUp anim-delay-100 mb-6">
-          <span className="inline-flex items-center gap-2 glass text-white/80 text-sm font-medium px-5 py-2 rounded-full border border-white/20">
-            <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+        <div className="animate-fadeInUp anim-delay-100 mb-8">
+          <span className="inline-flex items-center gap-2.5 glass text-white/90 text-sm font-semibold px-6 py-3 rounded-full border border-white/30">
+            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse flex-shrink-0" />
             Association loi 1901 · Fondée en 2012
           </span>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6 text-shadow-lg animate-fadeInUp anim-delay-200">
-          Solidarité, soutien
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-400 to-amber-400 mt-2">
-            et développement humain
+        <h1 className="font-black leading-none mb-8 animate-fadeInUp anim-delay-200 tracking-tight">
+          <span className="block text-6xl md:text-8xl text-white drop-shadow-2xl">
+            Ensemble,
+          </span>
+          <span className="block text-5xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-400 to-yellow-300 animate-gradient-x mt-2">
+            bâtissons l'avenir
           </span>
         </h1>
 
-        <p className="text-lg md:text-xl mb-10 text-white/80 max-w-3xl mx-auto leading-relaxed animate-fadeInUp anim-delay-300">
-          Éducation, santé, agriculture : nous accompagnons les communautés au Cameroun, en Europe et partout dans le monde vers plus d'autonomie et un avenir meilleur
+        <p className="text-lg md:text-xl mb-12 text-white/75 max-w-2xl mx-auto leading-relaxed animate-fadeInUp anim-delay-300">
+          Éducation, santé, agriculture — depuis 2012, nous accompagnons les communautés camerounaises, européennes et internationales vers plus d'autonomie
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fadeInUp anim-delay-400">
           <button
             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-white text-emerald-800 px-9 py-4 rounded-full font-bold text-sm hover:shadow-2xl hover:shadow-black/20 transform hover:scale-105 transition-all duration-300"
+            className="bg-white text-emerald-900 px-10 py-4 rounded-full font-bold text-sm hover:shadow-2xl hover:shadow-white/20 transform hover:scale-105 transition-all duration-300 shadow-xl"
           >
             Découvrir notre mission
           </button>
           <button
             onClick={() => document.getElementById('donate')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-9 py-4 rounded-full font-bold text-sm hover:shadow-2xl hover:shadow-orange-500/30 transform hover:scale-105 transition-all duration-300"
+            className="bg-gradient-to-r from-orange-500 to-amber-400 text-white px-10 py-4 rounded-full font-bold text-sm hover:shadow-2xl hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300 shadow-lg shadow-orange-500/30"
           >
             Soutenir nos actions
           </button>
         </div>
 
-        {/* Stats bar */}
-        <div className="mt-16 animate-fadeInUp anim-delay-500">
-          <div className="glass rounded-2xl px-6 py-5 inline-grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+        {/* Barre de stats */}
+        <div className="mt-14 animate-fadeInUp anim-delay-500">
+          <div className="glass rounded-2xl px-8 py-5 inline-grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border border-white/25">
             {[
               { value: '14+', label: 'Actions réalisées' },
               { value: '12+', label: "Années d'engagement" },
@@ -67,8 +70,8 @@ export default function Hero() {
               { value: '3', label: 'Continents' },
             ].map(({ value, label }) => (
               <div key={label} className="text-center">
-                <div className="text-2xl font-black text-white">{value}</div>
-                <div className="text-white/55 text-xs font-medium mt-0.5 whitespace-nowrap">{label}</div>
+                <div className="text-3xl font-black text-white mb-1 leading-none">{value}</div>
+                <div className="text-white/50 text-xs font-medium whitespace-nowrap">{label}</div>
               </div>
             ))}
           </div>
@@ -76,7 +79,7 @@ export default function Hero() {
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-        <div className="glass w-10 h-10 rounded-full flex items-center justify-center">
+        <div className="glass w-11 h-11 rounded-full flex items-center justify-center border border-white/30">
           <ArrowDown size={18} className="text-white" />
         </div>
       </div>

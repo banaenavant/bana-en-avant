@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -27,6 +27,20 @@ import type { Page } from './types';
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [returnAnchor, setReturnAnchor] = useState<string>('');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('revealed');
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+    );
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+      .forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, [currentPage]);
 
   const navigateTo = (page: Page) => {
     setReturnAnchor(page === 'mission' ? 'about' : 'actions');

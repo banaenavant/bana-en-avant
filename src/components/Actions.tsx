@@ -167,8 +167,8 @@ export default function Actions({ onNavigate }: ActionsProps) {
     <section id="actions" className="py-24 bg-gray-50">
       <div className="container mx-auto px-6">
 
-        <div className="text-center mb-16 animate-fadeInUp">
-<h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
+        <div className="text-center mb-16 reveal">
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
             Nos Actions
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 to-orange-400 mx-auto mb-6 rounded-full" />
@@ -177,11 +177,12 @@ export default function Actions({ onNavigate }: ActionsProps) {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {actions.map((action, index) => {
             const Icon = action.icon;
+            const delayClass = `reveal-d${(index % 3) + 1}`;
             return (
               <button
                 key={index}
                 onClick={() => onNavigate(action.page)}
-                className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-gray-200/80 transform hover:-translate-y-1 transition-all duration-500 text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2"
+                className={`reveal ${delayClass} group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-gray-200/80 transform hover:-translate-y-1 transition-all duration-500 text-left focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2`}
               >
                 {/* Image */}
                 <div className="relative h-52 overflow-hidden">

@@ -36,7 +36,7 @@ export default function GetInvolved() {
     <section id="get-involved" className="py-24 bg-white">
       <div className="container mx-auto px-6">
 
-        <div className="text-center mb-16 animate-fadeInUp">
+        <div className="text-center mb-16 reveal">
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
             Agir avec nous
           </h2>
@@ -44,11 +44,11 @@ export default function GetInvolved() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-6 mb-16">
-          {ways.map(({ icon: Icon, title, description, color, href }) => (
+          {ways.map(({ icon: Icon, title, description, color, href }, i) => (
             <div
               key={title}
               onClick={href ? () => window.open(href, '_blank') : undefined}
-              className={`group relative bg-gray-50 hover:bg-white rounded-3xl p-7 border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-400 w-full md:w-72 ${href ? 'cursor-pointer' : 'cursor-default'}`}
+              className={`reveal reveal-d${i + 1} group relative bg-gray-50 hover:bg-white rounded-3xl p-7 border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-400 w-full md:w-72 ${href ? 'cursor-pointer' : 'cursor-default'}`}
             >
               <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                 <Icon className="text-white" size={26} />

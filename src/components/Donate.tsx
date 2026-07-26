@@ -35,7 +35,7 @@ export default function Donate() {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
 
-          <div className="text-center mb-12 animate-fadeInUp">
+          <div className="text-center mb-12 reveal">
             <span className="inline-block text-emerald-600 text-sm font-bold uppercase tracking-widest mb-4">
               Soutenez nos actions
             </span>

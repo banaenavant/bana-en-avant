@@ -11,7 +11,7 @@ export default function About({ onNavigate }: AboutProps) {
       <div className="container mx-auto px-6">
 
         {/* Header */}
-        <div className="text-center mb-16 animate-fadeInUp">
+        <div className="text-center mb-16 reveal">
           <span className="inline-block text-emerald-600 text-sm font-bold uppercase tracking-widest mb-4">
             Notre identité
           </span>
@@ -31,10 +31,10 @@ export default function About({ onNavigate }: AboutProps) {
             { value: '14+', label: 'Actions réalisées', icon: Heart },
             { value: '1000+', label: 'Bénéficiaires', icon: Users },
             { value: '3', label: 'Continents', icon: MapPin },
-          ].map(({ value, label, icon: Icon }) => (
+          ].map(({ value, label, icon: Icon }, i) => (
             <div
               key={label}
-              className="text-center bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 border border-gray-100 hover:border-emerald-200 hover:shadow-lg transition-all duration-300 group"
+              className={`reveal reveal-d${i + 1} text-center bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 border border-gray-100 hover:border-emerald-200 hover:shadow-lg transition-all duration-300 group`}
             >
               <div className="w-12 h-12 bg-emerald-50 group-hover:bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-3 transition-colors duration-300">
                 <Icon size={22} className="text-emerald-600" />
@@ -46,7 +46,7 @@ export default function About({ onNavigate }: AboutProps) {
         </div>
 
         {/* Mission card */}
-        <div className="flex justify-center mb-16">
+        <div className="flex justify-center mb-16 reveal">
           <button
             onClick={() => onNavigate('mission')}
             className="w-full max-w-2xl bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-10 border border-emerald-100 hover:border-emerald-300 hover:shadow-2xl hover:shadow-emerald-100/50 transform hover:-translate-y-1 transition-all duration-400 text-left group"
@@ -71,7 +71,7 @@ export default function About({ onNavigate }: AboutProps) {
         {/* History section */}
         <div className="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl">
           <div className="grid md:grid-cols-2 gap-0">
-            <div className="relative h-72 md:h-auto overflow-hidden">
+            <div className="relative h-72 md:h-auto overflow-hidden reveal-left">
               <img
                 src="/Chefferie_Bana.jpg"
                 alt="Communauté de Bana"
@@ -79,7 +79,7 @@ export default function About({ onNavigate }: AboutProps) {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-900/20 md:bg-gradient-to-r md:from-transparent md:to-gray-900/40" />
             </div>
-            <div className="p-10 md:p-14 flex flex-col justify-center">
+            <div className="p-10 md:p-14 flex flex-col justify-center reveal-right">
               <span className="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-4">Notre histoire</span>
               <h3 className="text-3xl font-black text-white mb-6 leading-tight">
                 Un engagement de plus de 12 ans
