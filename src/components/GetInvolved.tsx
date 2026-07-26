@@ -37,16 +37,10 @@ export default function GetInvolved() {
       <div className="container mx-auto px-6">
 
         <div className="text-center mb-16 animate-fadeInUp">
-          <span className="inline-block text-emerald-600 text-sm font-bold uppercase tracking-widest mb-4">
-            Rejoignez-nous
-          </span>
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
             Agir avec nous
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 to-blue-400 mx-auto mb-6 rounded-full" />
-          <p className="text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
-            Rejoignez-nous dans notre mission de solidarité pour des communautés autonomes et prospères, du Cameroun à l'international
-          </p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-6 mb-16">
