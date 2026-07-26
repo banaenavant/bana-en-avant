@@ -1,4 +1,4 @@
-import { Facebook, Globe, Heart, Users, ArrowUpRight } from 'lucide-react';
+import { Facebook, Globe, ArrowUpRight } from 'lucide-react';
 
 export default function SocialMedia() {
   const platforms = [
@@ -43,11 +43,11 @@ export default function SocialMedia() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto">
           {platforms.map(({ icon: Icon, title, description, href, label, iconBg, border }) => (
             <div
               key={title}
-              className={`group bg-white rounded-3xl border border-gray-100 ${border} shadow-sm hover:shadow-xl p-8 transition-all duration-400 flex flex-col`}
+              className={`group bg-white rounded-3xl border border-gray-100 ${border} shadow-sm hover:shadow-xl p-8 transition-all duration-400 flex flex-col w-full md:w-72`}
             >
               <div className={`w-14 h-14 ${iconBg} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                 <Icon className="text-white" size={26} />
@@ -67,16 +67,6 @@ export default function SocialMedia() {
           ))}
         </div>
 
-        {/* Newsletter strip */}
-        <div className="max-w-2xl mx-auto mt-14 text-center">
-          <div className="flex items-center gap-3 justify-center text-gray-400 text-sm">
-            <Heart size={14} className="text-red-400" />
-            <span>
-              Chaque partage de nos actions aide à sensibiliser davantage de personnes à notre cause
-            </span>
-            <Heart size={14} className="text-red-400" />
-          </div>
-        </div>
       </div>
     </section>
   );
