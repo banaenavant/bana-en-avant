@@ -24,17 +24,6 @@ export default function SocialMedia() {
       border: 'hover:border-emerald-200',
       iconBg: 'bg-emerald-600',
     },
-    {
-      icon: Users,
-      title: 'Rejoignez-nous',
-      description: 'Devenez membre actif de notre association et contribuez à nos actions de solidarité',
-      href: 'mailto:contact@banaenvant.org',
-      label: 'Devenir membre',
-      gradient: 'from-orange-500 to-amber-500',
-      light: 'bg-orange-50',
-      border: 'hover:border-orange-200',
-      iconBg: 'bg-orange-500',
-    },
   ];
 
   return (

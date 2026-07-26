@@ -7,18 +7,12 @@ export default function GetInvolved() {
 
   const ways = [
     {
-      icon: HandHeart,
-      title: 'Faire un don',
-      description: 'Soutenez financièrement nos projets pour toutes les communautés',
-      color: 'from-emerald-500 to-teal-500',
-      light: 'bg-emerald-50',
-    },
-    {
       icon: Users,
       title: 'Devenir bénévole',
       description: 'Donnez de votre temps et de vos compétences partout dans le monde',
       color: 'from-blue-500 to-indigo-500',
       light: 'bg-blue-50',
+      href: '',
     },
     {
       icon: Share2,
@@ -26,6 +20,7 @@ export default function GetInvolved() {
       description: 'Faites connaître notre action autour de vous, chaque partage compte',
       color: 'from-purple-500 to-pink-500',
       light: 'bg-purple-50',
+      href: '',
     },
     {
       icon: Mail,
@@ -33,6 +28,7 @@ export default function GetInvolved() {
       description: 'Posez-nous vos questions ou proposez un partenariat',
       color: 'from-orange-500 to-amber-500',
       light: 'bg-orange-50',
+      href: 'https://mail.google.com/mail/?view=cm&to=Tchaptchet80@yahoo.fr',
     },
   ];
 
@@ -53,11 +49,12 @@ export default function GetInvolved() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {ways.map(({ icon: Icon, title, description, color }) => (
+        <div className="flex flex-wrap justify-center gap-6 mb-16">
+          {ways.map(({ icon: Icon, title, description, color, href }) => (
             <div
               key={title}
-              className="group relative bg-gray-50 hover:bg-white rounded-3xl p-7 border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-400 cursor-default"
+              onClick={href ? () => window.open(href, '_blank') : undefined}
+              className={`group relative bg-gray-50 hover:bg-white rounded-3xl p-7 border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-400 w-full md:w-72 ${href ? 'cursor-pointer' : 'cursor-default'}`}
             >
               <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                 <Icon className="text-white" size={26} />
