@@ -1,4 +1,4 @@
-import { Facebook, Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function Footer() {
   const scrollTo = (id: string) =>
@@ -28,16 +28,9 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://www.facebook.com/banaenavant"
+                href="https://mail.google.com/mail/?view=cm&to=Tchaptchet80@yahoo.fr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
-                aria-label="Facebook"
-              >
-                <Facebook size={18} />
-              </a>
-              <a
-                href="mailto:contact@banaenvant.org"
                 className="w-10 h-10 bg-gray-800 hover:bg-emerald-600 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
                 aria-label="Email"
               >

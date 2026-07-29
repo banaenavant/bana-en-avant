@@ -1,4 +1,4 @@
-import { Facebook, Globe, ArrowUpRight } from 'lucide-react';
+import { Facebook, Users, Globe, ArrowUpRight } from 'lucide-react';
 
 export default function SocialMedia() {
   const platforms = [
@@ -7,6 +7,17 @@ export default function SocialMedia() {
       title: 'Facebook',
       description: 'Suivez notre page pour les dernières nouvelles, événements et photos de nos actions',
       href: 'https://www.facebook.com/banaenavant',
+      label: 'Suivre notre page',
+      gradient: 'from-blue-600 to-blue-700',
+      light: 'bg-blue-50',
+      border: 'hover:border-blue-200',
+      iconBg: 'bg-blue-600',
+    },
+    {
+      icon: Users,
+      title: 'Groupe Facebook',
+      description: 'Suivez notre page pour les dernières nouvelles, événements et photos de nos actions',
+      href: 'https://www.facebook.com/share/g/19GXu5dc1Y/?mibextid=wwXIfr',
       label: 'Suivre notre page',
       gradient: 'from-blue-600 to-blue-700',
       light: 'bg-blue-50',
@@ -43,7 +54,7 @@ export default function SocialMedia() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
           {platforms.map(({ icon: Icon, title, description, href, label, iconBg, border }) => (
             <div
               key={title}
